@@ -53,7 +53,7 @@ def ibuild_keyboard(buttons):
 
 
 def main_menu():
-    text = f"**▾∮ مرحبا عزيزي {mention}**\n**▾اليكَ قائمة بازرار مضمنة لاوامر ↫**⍣ⵧⵧⵧⵧⵧᴊᴍᴛʜᴏɴⵧⵧⵧⵧⵧ⍣**\n[𝙅𝙈𝙏𝙃𝙊𝙉 𝙐𝙎𝙀𝙍𝘽𝙊𝙏 🧸♥](https://t.me/JMTHON)\n\n"
+    text = f"**▾∮ مرحبا عزيزي {mention}**\n**▾اليكَ قائمة بازرار مضمنة لاوامر ↫**⍣ⵧⵧⵧⵧⵧᴊᴍᴛʜᴏɴⵧⵧⵧⵧⵧ⍣**\n[HUKS 𝙐𝙎𝙀𝙍𝘽𝙊𝙏 🧸♥](https://t.me/C7CCQ)\n\n"
     buttons = [
         (Button.inline("معلومات الملفات 🗂", data="check"),),
         (
@@ -422,7 +422,7 @@ async def inline_handler(event):
             _result = main_menu()
             result = builder.article(
                 title="Jmthon Help™",
-                description="**▾∮ قائمة التعليمات الخاصة بــ جمثـون **",
+                description="**▾∮ قائمة التعليمات الخاصة بــ هوكس **",
                 text=_result[0],
                 buttons=_result[1],
                 link_preview=False,
@@ -558,10 +558,10 @@ async def inline_handler(event):
     else:
         buttons = [
             (
-                Button.url("قناة السورس", "t.me/JMTHON"),
+                Button.url("قناة السورس", "t.me/c7ccq"),
                 Button.url(
                     "المطور",
-                    "t.me/RR7PP",
+                    "t.me/dddd0dd",
                 ),
             )
         ]
@@ -575,9 +575,9 @@ async def inline_handler(event):
         result = types.InputBotInlineResult(
             id=str(uuid4()),
             type="photo",
-            title="[𝙅𝙈𝙏𝙃𝙊𝙉 𝙐𝙎𝙀𝙍𝘽𝙊𝙏 🧸♥](https://t.me/JMTHON)",
+            title="[HUKS 𝙐𝙎𝙀𝙍𝘽𝙊𝙏 🧸♥](https://t.me/DDDD0DD)",
             description="لـتنصيبه لك",
-            url="t.me/JMTHON",
+            url="t.me/C7CCQ",
             thumb=photo,
             content=photo,
             send_message=types.InputBotInlineMessageMediaAuto(
