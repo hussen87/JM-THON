@@ -1,34 +1,3 @@
-import os , random , datetime , base64 , logging , asyncio , time
-from telethon.tl import functions, types
-from telethon.tl.functions.channels import JoinChannelRequest
-from telethon.errors import FloodWaitError
-from telethon import TelegramClient, events
-from collections import deque
-from telethon.tl.functions.messages import ExportChatInviteRequest
-from telethon.errors.rpcerrorlist import YouBlockedUserError
-import requests
-import datetime
-from justwatch import JustWatch
-from telegraph import Telegraph, upload_file, exceptions
-class AiArt:
-	def __init__(self, query, *vars):
-		self.r = requests.Session()
-		self.query = query
-		self._main_()
-	def _main_(self):
-		authorization = requests.post("https://securetoken.googleapis.com/v1/token?key=AIzaSyDCvp5MTJLUdtBYEKYWXJrlLzu1zuKM6Xw", data={"grant_type": "refresh_token", "refresh_token": "AOEOulYxSBtIcIUxZJXlnRNkUtRRFaqDpaQeOEu8ELuSg2LovVGbHSBNf1vFjFD6vVzsSqj81NO5-XUdueMr5g100iP8gN8Hit0zRaJDxVdIcGSL8ktAq9PoET806WIUThrJKAheBz4DTqiDCCRX5UeR23xClCObrhbCWvqmXobRUe09_yAPanY"}).json()
-		self.r.headers = {"authorization":f"{str(authorization['token_type']).lower()} {str(authorization['access_token'])}"}
-		self.id = self.r.post("https://paint.api.wombo.ai/api/tasks", data='{"premium":false}').json()["id"]
-		self.r.put("https://paint.api.wombo.ai/api/tasks/"+self.id, data='{"input_spec":{"prompt":"'+self.query+'","style":3,"display_freq":10}}')
-	def Generator(self):
-		while True:
-			response = self.r.get("https://paint.api.wombo.ai/api/tasks/"+self.id).json()
-			if response["state"] == "completed":
-				return response["result"]["final"]
-			time.sleep(1.5)
-api_id = '6034319'
-api_hash = 'ec87c3a00c745ce8ef9566e3019c26b6'
-client = TelegramClient('session', api_id, api_hash)
 telegraph = Telegraph()
 r = telegraph.create_account(short_name=logging.getLogger(__name__))
 auth_url = r["auth_url"]
